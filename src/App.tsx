@@ -1,11 +1,25 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom'
 
+import Navbar from './components/navbar/navbar'
+import Home from './pages/home/home'
+
+const routes =[
+  {path: '/', name: 'Home', component: Home}
+]
 
 const App = () => {
   
   return (
     <div className="App">
-      <h1>Testing</h1>
+      <Navbar />
+      <Switch>
+        {
+          routes.map(({ path, name, component}) => (
+            <Route key={name} exact path={path} component={component} />
+          ))
+        }
+      </Switch>
     </div>
   );
 }
