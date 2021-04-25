@@ -39,7 +39,7 @@ const Landing = () => {
         <p>Grow your audience and build your online brand</p>
         <div className="button-cta">
           <Button>Start for Free</Button>
-          <Button>Learn More</Button>
+          <Button inverse>Learn More</Button>
         </div>
       </div>
     </StyledLanding>

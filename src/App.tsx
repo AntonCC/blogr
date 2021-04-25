@@ -8,8 +8,7 @@ const routes =[
   {path: '/', name: 'Home', component: Home}
 ]
 
-const App = () => {
-  
+const App = () => { 
   return (
     <div className="App">
       <Navbar />

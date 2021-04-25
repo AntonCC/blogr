@@ -57,7 +57,7 @@ const Navbar = () => {
       </div>
 
       <div className="cta-buttons">
-        <Button>Login</Button>
+        <Button inverse>Login</Button>
         <Button>Sign Up</Button>
       </div>
     </StyledNavbar>
