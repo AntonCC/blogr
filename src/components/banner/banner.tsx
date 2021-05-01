@@ -1,21 +1,34 @@
 import React from 'react'
-import { StyledBanner } from './styledBanner'
+import { StyledBanner } from './sBanner'
 import { Container } from '../../styledGeneral/styledGeneral'
+import { ReactComponent as Test } from '../../assets/illustration-editor-desktop.svg'
 
-const Banner = () => {
+interface Props {
+  bannerTitle?: string,
+  textContent: { title: string, text: string }[]
+}
+
+const Banner: React.FC<Props> = ({ bannerTitle, textContent}) => {
   return (
     <StyledBanner>
       <Container>
-        <h2>Designed for the future</h2>
+        {
+          bannerTitle && 
+            <h2>{ bannerTitle }</h2>
+        }
         <div className="content">
           <div className="text">
-            <h4>Introducing an extensible editor</h4>
-            <p>
-              Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or change the looks of a blog.
-            </p>
+            {
+              textContent.map(({ title, text}) => (
+                <div className="group">
+                  <h4>{ title }</h4>
+                  <p>{ text }</p>
+                </div>
+              ))
+            }
           </div>
           <div className="img-container">
-
+            <Test />
           </div>
         </div>
       </Container>
