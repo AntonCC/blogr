@@ -5,7 +5,7 @@ import Landing from '../../components/landing/landing'
 import Banner from '../../components/banner/banner'
 import SlimBanner from '../../components/slim-banner/slim-banner'
 
-import { banner1Info } from './homeInfo'
+import { banner1Info, banner2Info } from './homeInfo'
 
 const Home = () => {
   return (
@@ -13,6 +13,7 @@ const Home = () => {
       <Landing />
       <Banner {...banner1Info} />
       <SlimBanner />
+      <Banner {...banner2Info} />
     </div>
   )
 }

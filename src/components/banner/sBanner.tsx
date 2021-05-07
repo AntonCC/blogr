@@ -1,6 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const StyledBanner = styled.div`
+interface BannerProps {
+  reverseSide?: boolean 
+}
+
+export const StyledBanner= styled.div<BannerProps>`
   width: 100%;
   padding: 16rem 0;
   .general-container {
@@ -9,17 +13,17 @@ export const StyledBanner = styled.div`
     justify-content: center;
     align-items: center;
     color: #1F3E5A;
-    h2 {
+    .title {
       font-size: 4rem;
-      /* margin-bottom: 9rem; */
+      margin-bottom: 9rem;
       font-weight: 600;
     }
     .content {
       width: 100%;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      justify-content: center;
+      display: flex;
+      justify-content: flex-start;
       align-items: center;
+      position: relative;
       .text {
         max-width: 540px;
         .group {
@@ -36,7 +40,19 @@ export const StyledBanner = styled.div`
         }
       }
       .img-container {
-
+        /* width: 200px; */
+        width: 50%;
+      }
+      ${({ reverseSide}) =>
+        reverseSide &&
+          css`
+            .text {
+              order: 2;
+            }
+            .img-container {
+              order: 1;
+            }
+          `
       }
     }
   }

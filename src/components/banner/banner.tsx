@@ -1,20 +1,22 @@
 import React from 'react'
 import { StyledBanner } from './sBanner'
 import { Container } from '../../styledGeneral/styledGeneral'
-import { ReactComponent as Test } from '../../assets/illustration-editor-desktop.svg'
+import Test from '../../assets/illustration-editor-desktop.svg'
 
 interface Props {
   bannerTitle?: string,
-  textContent: { title: string, text: string }[]
+  image: JSX.Element,
+  textContent: { title: string, text: string }[],
+  reverseSide?: boolean
 }
 
-const Banner: React.FC<Props> = ({ bannerTitle, textContent}) => {
+const Banner: React.FC<Props> = ({ bannerTitle, image, textContent, reverseSide}) => {
   return (
-    <StyledBanner>
+    <StyledBanner reverseSide={reverseSide}>
       <Container>
         {
           bannerTitle && 
-            <h2>{ bannerTitle }</h2>
+            <h2 className='title'>{ bannerTitle }</h2>
         }
         <div className="content">
           <div className="text">
@@ -28,7 +30,7 @@ const Banner: React.FC<Props> = ({ bannerTitle, textContent}) => {
             }
           </div>
           <div className="img-container">
-            <Test />
+            { image }
           </div>
         </div>
       </Container>
