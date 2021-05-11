@@ -43,14 +43,15 @@ export const StyledBanner= styled.div<BannerProps>`
         /* width: 200px; */
         width: 50%;
       }
+
       ${({ reverseSide}) =>
         reverseSide &&
           css`
             .text {
-              order: 2;
+              
             }
             .img-container {
-              order: 1;
+
             }
           `
       }

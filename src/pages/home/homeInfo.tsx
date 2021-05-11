@@ -1,9 +1,9 @@
-import { ReactComponent as Desktop } from '../../assets/illustration-editor-desktop.svg'
-import { ReactComponent as Laptop } from '../../assets/illustration-laptop-desktop.svg'
+import Desktop from '../../assets/illustration-editor-desktop.svg'
+import Laptop from '../../assets/illustration-laptop-desktop.svg'
 
 export const banner1Info = {
   bannerTitle: 'Designed for the future',
-  image: <Desktop />,
+  image: Desktop,
   textContent: [
     {
       title: 'Introducing an extensible editor',
@@ -17,7 +17,7 @@ export const banner1Info = {
 }
 
 export const banner2Info = {
-  image: <Laptop />,
+  image: Laptop,
   textContent: [
     {
       title: 'Free, open, simple',

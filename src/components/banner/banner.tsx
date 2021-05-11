@@ -1,11 +1,10 @@
 import React from 'react'
 import { StyledBanner } from './sBanner'
 import { Container } from '../../styledGeneral/styledGeneral'
-import Test from '../../assets/illustration-editor-desktop.svg'
 
 interface Props {
   bannerTitle?: string,
-  image: JSX.Element,
+  image: string,
   textContent: { title: string, text: string }[],
   reverseSide?: boolean
 }
@@ -30,7 +29,7 @@ const Banner: React.FC<Props> = ({ bannerTitle, image, textContent, reverseSide}
             }
           </div>
           <div className="img-container">
-            { image }
+            <img src={ image } alt="" />
           </div>
         </div>
       </Container>
