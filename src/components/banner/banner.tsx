@@ -5,11 +5,12 @@ import { Container } from '../../styledGeneral/styledGeneral'
 interface Props {
   bannerTitle?: string,
   image: string,
+  imageMobile: string,
   textContent: { title: string, text: string }[],
   reverseSide?: boolean
 }
 
-const Banner: React.FC<Props> = ({ bannerTitle, image, textContent, reverseSide}) => {
+const Banner: React.FC<Props> = ({ bannerTitle, image, imageMobile, textContent, reverseSide}) => {
   return (
     <StyledBanner reverseSide={reverseSide}>
       <Container>
@@ -29,7 +30,10 @@ const Banner: React.FC<Props> = ({ bannerTitle, image, textContent, reverseSide}
             }
           </div>
           <div className="img-container">
-            <img src={ image } alt="" />
+            <picture>
+              <source media='(max-width: 1160px)' srcSet={ imageMobile } />
+              <img src={ image } alt="" />
+            </picture>
           </div>
         </div>
       </Container>

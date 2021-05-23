@@ -18,16 +18,12 @@ export const StyledSlimBanner = styled.div`
   }
   .general-container {
     position: relative;
-    width: 100%;
-    position: relative;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 'side-a side-b';
-    justify-content: center;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
     padding: 12rem 0;
     .text {
-      grid-area: side-b;
+      max-width: 540px;
       z-index: 15;
       h2 {
         font-size: 4rem;
@@ -41,6 +37,34 @@ export const StyledSlimBanner = styled.div`
     .img-container {
       position: absolute;
       left: -30px;
+    }
+  }
+
+  @media only screen and (max-width: 1160px) {
+    margin-top: 10rem;
+    .background {
+      .img-background {
+        top: -80%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .general-container {
+      justify-content: center;
+      .text {
+        padding-top: 25rem;
+        text-align: center;
+        /* max-width: 330px; */
+        /* max-width: 700px; */
+        h2 {
+          margin-bottom: 2rem;
+        }
+      }
+      .img-container {
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 `

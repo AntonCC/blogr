@@ -20,8 +20,9 @@ export const StyledBanner= styled.div<BannerProps>`
     }
     .content {
       width: 100%;
-      display: flex;
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 4rem;
       align-items: center;
       position: relative;
       .text {
@@ -40,20 +41,48 @@ export const StyledBanner= styled.div<BannerProps>`
         }
       }
       .img-container {
-        /* width: 200px; */
-        width: 50%;
+        object-fit: cover;
+        img {
+          width: 100%;
+        }
       }
 
-      ${({ reverseSide}) =>
+      ${({ reverseSide }) =>
         reverseSide &&
           css`
             .text {
-              
+              order: 2;
             }
             .img-container {
-
+              order: 1;
             }
           `
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1160px) {
+    .general-container {
+      .title {
+        font-size: 3.2rem;
+        margin-bottom: 4rem;
+      }
+      .content {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        .text {
+          order: 2;
+          text-align: center;
+          margin: 0 auto;
+        }
+        .img-container {
+          order: 1;
+          margin: 0 auto 2rem auto;
+          img {
+            max-width: 700px;
+          }
+        }
       }
     }
   }

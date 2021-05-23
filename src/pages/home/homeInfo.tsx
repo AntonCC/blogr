@@ -1,9 +1,12 @@
 import Desktop from '../../assets/illustration-editor-desktop.svg'
+import DesktopMobile from '../../assets/illustration-editor-mobile.svg'
 import Laptop from '../../assets/illustration-laptop-desktop.svg'
+import LaptopMobile from '../../assets/illustration-laptop-mobile.svg'
 
 export const banner1Info = {
   bannerTitle: 'Designed for the future',
   image: Desktop,
+  imageMobile: DesktopMobile,
   textContent: [
     {
       title: 'Introducing an extensible editor',
@@ -18,6 +21,7 @@ export const banner1Info = {
 
 export const banner2Info = {
   image: Laptop,
+  imageMobile: LaptopMobile,
   textContent: [
     {
       title: 'Free, open, simple',
