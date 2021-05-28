@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/navbar/navbar'
 import Home from './pages/home/home'
 
-const routes =[
+const routes = [
   {path: '/', name: 'Home', component: Home}
 ]
 

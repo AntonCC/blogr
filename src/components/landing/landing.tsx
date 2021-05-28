@@ -29,6 +29,18 @@ const StyledLanding = styled.div`
       margin-bottom: 4.8rem;
     }
   }
+
+  @media only screen and (max-width: 1000px) {
+    .text {
+      text-align: center;
+      h1 {
+        font-size: 3.6rem;
+      }
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
 `
 
 const Landing = () => {

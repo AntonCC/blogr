@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Container } from '../../styledGeneral/styledGeneral'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { ReactComponent as Arrow } from '../../assets/icon-arrow-light.svg'
+import { ReactComponent as Hamburger } from '../../assets/icon-hamburger.svg'
 import Button from '../button/button'
 
 const StyledNavbar = styled.div`
@@ -38,6 +39,24 @@ const StyledNavbar = styled.div`
       }
     }
   }
+  .hamburger {
+    display: none;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .side-a {
+      .nav-list {
+        display: none;
+      }
+    }
+    .cta-buttons {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+  }
 `
 
 const Navbar = () => {
@@ -55,10 +74,12 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-
       <div className="cta-buttons">
         <Button inverse>Login</Button>
         <Button>Sign Up</Button>
+      </div>
+      <div className="hamburger">
+        <Hamburger />
       </div>
     </StyledNavbar>
   )
