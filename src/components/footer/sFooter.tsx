@@ -9,6 +9,7 @@ export const StyledFooter = styled.footer`
     display: flex;
     justify-content: space-between;
     .site-links {
+      user-select: none;
       .section-title {
         font-size: 1.5rem;
         color: #fff;
@@ -27,6 +28,19 @@ export const StyledFooter = styled.footer`
             text-decoration: underline;
           }
         }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    .general-container {
+      flex-direction: column;
+      text-align: center;
+      .logo {
+        margin-bottom: 7.2rem;
+      }
+      .site-links {
+        margin-bottom: 4rem;
       }
     }
   }
