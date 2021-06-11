@@ -1,9 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const StyledNavbar = styled.div`
+interface Props {
+  hamburgerClicked: boolean
+}
+
+export const StyledNavbar = styled.div<Props>`
   width: 100%;
   padding: 4rem 0;
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   width: 90%;
@@ -21,6 +26,7 @@ export const StyledNavbar = styled.div`
     .nav-list ul {
       display: flex;
       list-style: none;
+      font-family: 'Ubuntu', sans-serif;
       .item-dropdown {
         position: relative;
         .item {
@@ -33,7 +39,8 @@ export const StyledNavbar = styled.div`
           }
           .dropdown {
             width: 90%;
-            /* height: 100px; */
+            padding: 2rem;
+            margin-top: 1rem;
             position: absolute;
             background: #fff;
             border-radius: 5px;
@@ -43,10 +50,18 @@ export const StyledNavbar = styled.div`
               flex-direction: column;
               li {
                 color: #111;
+                &:not(:last-child) {
+                 margin-bottom: 1.5rem; 
+                }
+                &:hover {
+                  font-weight: 700;
+                }
               }
             }
           }
-          &:hover {
+        }
+        &:hover {
+          .item {
             text-decoration: underline;
             .dropdown {
               display: block;
@@ -59,6 +74,26 @@ export const StyledNavbar = styled.div`
   .hamburger {
     display: none;
   }
+  .slide-out {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    width: 100%;
+    border-radius: 5px;
+    /* ${({ hamburgerClicked }) => 
+      hamburgerClicked && 
+        css`
+          display: absolute;
+          bottom: 0;
+          left: 0;
+          height: 100px;
+          width: 100%;
+          background: #fff;
+        `
+      } */
+
+    }
 
   @media only screen and (max-width: 1000px) {
     .side-a {

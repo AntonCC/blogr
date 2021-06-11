@@ -11,6 +11,7 @@ interface ButtonProps {
 }
 
 const StyledButton = styled.button<ButtonProps>`
+  font-family: 'Ubuntu', sans-serif;
   background: none;
   outline: none;
   border: none;

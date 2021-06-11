@@ -23,21 +23,18 @@ const Footer: React.FC = () => {
         <div className="site-links">
           <div className="section-title">Company</div>
           <ul>
-            <li>Overview</li>
-            <li>Pricing</li>
-            <li>Marketplace</li>
-            <li>Feature</li>
-            <li>Integrations</li>
+            <li>About</li>
+            <li>Team</li>
+            <li>Blog</li>
+            <li>Careers</li>
           </ul>
         </div>
         <div className="site-links">
           <div className="section-title">Connect</div>
           <ul>
-            <li>Overview</li>
-            <li>Pricing</li>
-            <li>Marketplace</li>
-            <li>Feature</li>
-            <li>Integrations</li>
+            <li>Contact</li>
+            <li>Newletter</li>
+            <li>Linkedin</li>
           </ul>
         </div>
       </Container>
