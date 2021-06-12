@@ -75,24 +75,63 @@ export const StyledNavbar = styled.div<Props>`
     display: none;
   }
   .slide-out {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-    width: 100%;
-    border-radius: 5px;
-    /* ${({ hamburgerClicked }) => 
+    display: none;
+
+    ${({ hamburgerClicked }) => 
       hamburgerClicked && 
         css`
-          display: absolute;
-          bottom: 0;
+          display: block;
+          position: absolute;
+          bottom: -225px;
           left: 0;
-          height: 100px;
           width: 100%;
           background: #fff;
+          width: 100%;
+          border-radius: 5px;
         `
-      } */
+      }
 
+      .mobile-nav-list {
+          width: 100%;
+          padding: 2rem;
+          ul {
+            list-style: none;
+            .item {
+              width: 100%;
+              text-align: center;
+              font-size: 1.8rem;
+              font-weight: 600;
+              color: #1F3E5A;
+              margin-bottom: 2rem;
+              cursor: pointer;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              svg {
+                margin-left: .5rem;
+              }
+            }
+          }
+          .line {
+            height: 1px;
+            width: 100%;
+            background: #dedede;
+            margin-bottom: 2rem;
+          }
+          .cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p {
+              font-size: 1.8rem;
+              font-weight: 600;
+              color: #1F3E5A;
+              cursor: pointer;
+              margin-bottom: 2rem;
+            }
+          }
+        }
+      }
     }
 
   @media only screen and (max-width: 1000px) {
