@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface Props {
-  hamburgerClicked: boolean
+  hamburgerClicked: boolean,
 }
 
 export const StyledNavbar = styled.div<Props>`
@@ -75,18 +75,18 @@ export const StyledNavbar = styled.div<Props>`
     display: none;
   }
   .slide-out {
-    display: none;
-
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    filter: drop-shadow(0 .5rem 2.75rem #222);
+    transition: all 250ms ease-in-out;
+    opacity: 0;
     ${({ hamburgerClicked }) => 
       hamburgerClicked && 
         css`
-          display: block;
-          position: absolute;
-          bottom: -225px;
-          left: 0;
-          width: 100%;
+          opacity: 1;
           background: #fff;
-          width: 100%;
           border-radius: 5px;
         `
       }
@@ -96,21 +96,6 @@ export const StyledNavbar = styled.div<Props>`
           padding: 2rem;
           ul {
             list-style: none;
-            .item {
-              width: 100%;
-              text-align: center;
-              font-size: 1.8rem;
-              font-weight: 600;
-              color: #1F3E5A;
-              margin-bottom: 2rem;
-              cursor: pointer;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              svg {
-                margin-left: .5rem;
-              }
-            }
           }
           .line {
             height: 1px;
