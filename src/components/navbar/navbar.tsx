@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { Container } from '../../styledGeneral/styledGeneral'
 import { StyledNavbar } from './sNavbar'
-import Button from '../button/button'
+import Button from '../button/button' 
 import MobileNavItem from '../mobile-nav-item/mobile-nav-item'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
@@ -12,6 +12,23 @@ import { ReactComponent as ArrowDark } from '../../assets/icon-arrow-dark.svg'
 import { ReactComponent as Hamburger } from '../../assets/icon-hamburger.svg'
 import { ReactComponent as Close } from '../../assets/icon-close.svg'
 
+const mobileNavInfo = [
+  {
+    itemName: 'Product',
+    innerItems: ['Overview', 'Pricing', 'Marketplace', 'Features', 'Inegration'],
+    sectionHeight: 200
+  },
+  {
+    itemName: 'Company',
+    innerItems: ['About', 'Team', 'Blog', 'Careers'],
+    sectionHeight: 150
+  },
+  {
+    itemName: 'Connect',
+    innerItems: ['Contact', 'Newsletter', 'Linkedin'],
+    sectionHeight: 100
+  }
+]
 
 const Navbar: React.FC = () => {
   const [hamburgerClicked, setHamburgerClicked] = useState(false)
@@ -20,6 +37,10 @@ const Navbar: React.FC = () => {
   const handleHamburgerClick = () => {
     setHamburgerClicked(!hamburgerClicked)
   }
+
+  // useEffect(() => {
+    
+  // })
 
   return (
     <StyledNavbar hamburgerClicked={hamburgerClicked}>
@@ -85,15 +106,13 @@ const Navbar: React.FC = () => {
       <div className="slide-out">
         <div className="mobile-nav-list">
           <ul>
-            <MobileNavItem>
-              Product <ArrowDark />
-            </MobileNavItem>
-            <MobileNavItem>
-              Company <ArrowDark />
-            </MobileNavItem>
-            <MobileNavItem>
-              Connect <ArrowDark />
-            </MobileNavItem>
+            {
+              mobileNavInfo.map(({ itemName, innerItems, sectionHeight }) => (
+                <MobileNavItem innerItems={innerItems} sectionHeight={sectionHeight}>
+                  { itemName } <ArrowDark />
+                </MobileNavItem>
+              ))
+            }
           </ul>
           <div className="line" />
           <div className="cta">

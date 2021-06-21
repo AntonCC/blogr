@@ -20,7 +20,7 @@ export const StyledNavbar = styled.div<Props>`
   .side-a {
     display: flex;
     align-items: center;
-    .logo{
+    .logo {
       margin-right: 3.2rem;
     }
     .nav-list ul {

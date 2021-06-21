@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
 interface Props {
+  innerItems: string[],
+  sectionHeight: number,
   children: React.ReactNode
 }
 
 interface NavProps {
-  openNavItem: boolean
+  openNavItem: boolean,
+  sectionHeight: number
 }
 
 const StyledMobileNavItem = styled.li<NavProps>`
@@ -29,32 +32,50 @@ const StyledMobileNavItem = styled.li<NavProps>`
   .inner-items {
     height: 0;
     transition: all 250ms ease-in-out;
-    ${({ openNavItem }) => 
+    overflow: hidden;
+    .inner-items-list {
+      opacity: 0;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1F3E5A;
+    }
+    ${({ openNavItem, sectionHeight }) => 
       openNavItem &&
         css`
-          height: 100px;
+          height: ${sectionHeight}px;
           width: 100%;
           background: #dedede;
           margin-bottom: 2rem;
+          .inner-items-list {
+            opacity: 1;
+          }
         `
     }
   }
 `
 
-const MobileNavItem: React.FC<Props> = ({ children }) => {
+const MobileNavItem: React.FC<Props> = ({ innerItems, sectionHeight, children }) => {
   const [openNavItem, setOpenNavItem] = useState(false)
 
   const handleNavItemClick = () => {
     setOpenNavItem(!openNavItem)
   }
 
-
   return (
-    <StyledMobileNavItem openNavItem={openNavItem}>
+    <StyledMobileNavItem openNavItem={openNavItem} sectionHeight={sectionHeight}>
       <div className="name" onClick={handleNavItemClick}>
         { children }
       </div>
-      <div className="inner-items"></div>
+      <div className="inner-items">
+        <ul className="inner-items-list">
+          {
+            innerItems.map((item) => (
+              <li>{ item }</li>
+            ))
+          }
+        </ul>
+      </div>
     </StyledMobileNavItem>
   )
 }
