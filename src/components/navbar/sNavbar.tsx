@@ -82,12 +82,16 @@ export const StyledNavbar = styled.div<Props>`
     filter: drop-shadow(0 .5rem 2.75rem #222);
     transition: all 250ms ease-in-out;
     opacity: 0;
+    visibility: none;
+    pointer-events: none;
     ${({ hamburgerClicked }) => 
       hamburgerClicked && 
         css`
           opacity: 1;
           background: #fff;
           border-radius: 5px;
+          visibility: block;
+          pointer-events: unset;
         `
       }
 

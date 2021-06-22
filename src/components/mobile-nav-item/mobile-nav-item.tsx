@@ -27,18 +27,38 @@ const StyledMobileNavItem = styled.li<NavProps>`
     user-select: none;
     svg {
       margin-left: .5rem;
+      ${({ openNavItem }) => 
+        openNavItem &&
+          css`
+            transform: rotate(180deg);
+          ` 
+      }
     }
   }
   .inner-items {
     height: 0;
     transition: all 250ms ease-in-out;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
     .inner-items-list {
       opacity: 0;
       text-align: center;
+      padding: 2.5rem;
       font-size: 1.6rem;
       font-weight: 600;
       color: #1F3E5A;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; 
+      align-items: center;
+      li {
+        color: #1F3E5A;
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
     }
     ${({ openNavItem, sectionHeight }) => 
       openNavItem &&

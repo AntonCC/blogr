@@ -5,6 +5,7 @@ import { Container } from '../../styledGeneral/styledGeneral'
 import { StyledNavbar } from './sNavbar'
 import Button from '../button/button' 
 import MobileNavItem from '../mobile-nav-item/mobile-nav-item'
+import debounce from '../../helperFuncs/debounce'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { ReactComponent as Arrow } from '../../assets/icon-arrow-light.svg'
@@ -21,26 +22,36 @@ const mobileNavInfo = [
   {
     itemName: 'Company',
     innerItems: ['About', 'Team', 'Blog', 'Careers'],
-    sectionHeight: 150
+    sectionHeight: 175
   },
   {
     itemName: 'Connect',
     innerItems: ['Contact', 'Newsletter', 'Linkedin'],
-    sectionHeight: 100
+    sectionHeight: 150
   }
 ]
 
 const Navbar: React.FC = () => {
   const [hamburgerClicked, setHamburgerClicked] = useState(false)
-  
+
 
   const handleHamburgerClick = () => {
     setHamburgerClicked(!hamburgerClicked)
   }
 
-  // useEffect(() => {
-    
-  // })
+  const handleResize = () => {
+    if(window.innerWidth > 1000) {
+      setHamburgerClicked(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <StyledNavbar hamburgerClicked={hamburgerClicked}>
