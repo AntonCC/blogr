@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
+import styled from 'styled-components'
 
 import Navbar from './components/navbar/navbar'
 import Home from './pages/home/home'
@@ -8,10 +9,14 @@ const routes = [
   {path: '/', name: 'Home', component: Home}
 ]
 
+const StyledApp = styled.div`
+  min-width: 370px;
+`
+
 const App = () => { 
   return (
-    <div className="App">
-      <Navbar />
+    <StyledApp>
+       <Navbar />
       <Switch>
         {
           routes.map(({ path, name, component}) => (
@@ -19,7 +24,7 @@ const App = () => {
           ))
         }
       </Switch>
-    </div>
+    </StyledApp>
   );
 }
 

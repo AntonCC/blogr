@@ -54,8 +54,6 @@ export const StyledSlimBanner = styled.div`
       .text {
         padding-top: 25rem;
         text-align: center;
-        /* max-width: 330px; */
-        /* max-width: 700px; */
         h2 {
           margin-bottom: 2rem;
         }
@@ -64,6 +62,17 @@ export const StyledSlimBanner = styled.div`
         top: -30%;
         left: 50%;
         transform: translateX(-50%);
+      }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .general-container {
+      .img-container {
+        top: 0;
+        img {
+          max-width: 300px;
+        }
       }
     }
   }

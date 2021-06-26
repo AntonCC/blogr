@@ -43,13 +43,16 @@ const Navbar: React.FC = () => {
     if(window.innerWidth > 1000) {
       setHamburgerClicked(false)
     }
+    console.log('Event fired!')
   }
 
+  const debouncedHandleResize = debounce(handleResize, 50)
+
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', debouncedHandleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', debouncedHandleResize)
     }
   }, [])
 

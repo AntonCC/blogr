@@ -17,6 +17,7 @@ export const StyledNavbar = styled.div<Props>`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 15;
   .side-a {
     display: flex;
     align-items: center;
