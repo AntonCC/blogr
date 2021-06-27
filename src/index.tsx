@@ -9,7 +9,7 @@ import { ThemeProvider } from 'styled-components'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename='/blogr' >
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
         <App />
